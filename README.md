@@ -1,36 +1,48 @@
-# Personal Portfolio Website in React
+# 🌐 My Personal Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to my personal portfolio website built with **React**! This project showcases my skills, projects, and social links in a clean and responsive design.
 
-<img width="1266" alt="Screen Shot 2022-06-19 at 2 18 18 PM" src="https://user-images.githubusercontent.com/50160672/174933373-1ba6cadf-1c9a-48c3-aa58-984d0bd62d82.png">
+---
 
-Built using:
+## 🚀 Live Demo
 
-- Front-end library: React
-- CSS framework: React-bootstrap
-- CSS animations library: Animate.css
+🔗 [Click here to view the live site](https://your-deployment-link.com)  
 
-In the /personal-portfolio, you can run:
+---
 
-### `npm start`
+## 📌 Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Responsive design (mobile, tablet, desktop)
+- About Me section
+- Projects with details
+- Skill meters (circular and animated)
+- Contact form with EmailJS
+- Social links to LinkedIn, GitHub, Instagram
+- Scroll animations and smooth UI
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🛠️ Tech Stack
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **React** (Frontend)
+- **React Bootstrap** & **TailwindCSS**
+- **React Multi Carousel** (for skills slider)
+- **React Circular Progressbar** (for meters)
+- **EmailJS** (for contact form)
+- **React Icons**, SVG assets
+- **Animate.css**, `react-on-screen` (for animations)
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🧑‍💻 Getting Started
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 1. Clone the repo
+
+```bash
+git clone https://github.com/Yamuna23071A6730/My-Portfolio.git
+cd My-Portfolio
+
+
+
