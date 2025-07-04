@@ -1,46 +1,39 @@
-import { useState, useEffect } from "react";
-import { Col, Row, Alert } from "react-bootstrap";
+import { useEffect } from "react";
+import { HiDownload } from "react-icons/hi";
+import resume from "../assets/resume.pdf";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
-export const Newsletter = ({ status, message, onValidated }) => {
-  const [email, setEmail] = useState('');
-
+export const Newsletter = () => {
   useEffect(() => {
-    if (status === 'success') clearFields();
-  }, [status])
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    email &&
-    email.indexOf("@") > -1 &&
-    onValidated({
-      EMAIL: email
-    })
-  }
-
-  const clearFields = () => {
-    setEmail('');
-  }
+    AOS.init({ duration: 1000 });
+  }, []);
 
   return (
-      <Col lg={12}>
-        <div className="newsletter-bx wow slideInUp">
-          <Row>
-            <Col lg={12} md={6} xl={5}>
-              <h3>Subscribe to our Newsletter<br></br> & Never miss latest updates</h3>
-              {status === 'sending' && <Alert>Sending...</Alert>}
-              {status === 'error' && <Alert variant="danger">{message}</Alert>}
-              {status === 'success' && <Alert variant="success">{message}</Alert>}
-            </Col>
-            <Col md={6} xl={7}>
-              <form onSubmit={handleSubmit}>
-                <div className="new-email-bx">
-                  <input value={email} type="email" onChange={(e) => setEmail(e.target.value)} placeholder="Email Address" />
-                  <button type="submit">Submit</button>
-                </div>
-              </form>
-            </Col>
-          </Row>
-        </div>
-      </Col>
-  )
-}
+    <div
+      className="w-full p-6 bg-white text-gray-800 mb-6 rounded-2xl shadow-xl flex justify-center items-center"
+      data-aos="zoom-in"
+    >
+      <div className="max-w-4xl w-full flex flex-col items-center text-center gap-6">
+        <h3 className="text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent leading-snug">
+          Want to know more about me?
+          <br />
+          Download my resume below
+        </h3>
+        <p className="text-gray-600 text-base max-w-xl">
+          Stay connected and explore my journey. This resume includes my latest projects, tech stack, achievements, and certifications — all in one place.
+        </p>
+        <a
+          href={resume}
+          download
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-2 px-7 py-3 bg-gradient-to-r from-purple-500 to-blue-500 hover:from-purple-600 hover:to-blue-600 text-white text-sm font-semibold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl animate-bounce"
+        >
+          <HiDownload className="text-lg" />
+          Download Resume
+        </a>
+      </div>
+    </div>
+  );
+};

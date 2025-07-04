@@ -1,11 +1,18 @@
+import React, { useEffect } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import 'react-circular-progressbar/dist/styles.css';
+import colorSharp from "../assets/img/color-sharp.png";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
-import colorSharp from "../assets/img/color-sharp.png";
 
 export const Skills = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
+
   const responsive = {
     superLargeDesktop: { breakpoint: { max: 4000, min: 3000 }, items: 5 },
     desktop: { breakpoint: { max: 3000, min: 1024 }, items: 3 },
@@ -14,31 +21,46 @@ export const Skills = () => {
   };
 
   const skills = [
-    { name: "Web Development", level: 90 },
-    { name: "React JS", level: 85 },
-    { name: "Logo Design", level: 80 },
-    { name: "Brand Identity", level: 70 }
+    { name: "MERN Stack", level: 100 },
+    { name: "Git & GitHub", level: 95 },
+    { name: "C Programming", level: 95 },
+    { name: "Java", level: 80 },
+    { name: "Python", level: 80 },
+    { name: "JavaScript", level: 60 },
+    { name: "MS Excel", level: 100 },
+    { name: "SQL", level: 90 },
+    { name: "Tableau", level: 90 },
+    { name: "PowerBI", level: 95 },
+    { name: "R Programming", level: 90 },
   ];
 
   return (
-    <section className="skill" id="skills">
+    <section className="skill text-white py-5" id="skills">
       <div className="container">
         <div className="row">
-          <div className="col-12">
+          <div className="col-12" data-aos="fade-up">
             <div className="skill-bx wow zoomIn">
-              <h2>My Skills</h2>
-              <p>These are my top technical and creative skills with visual proficiency.</p>
+              <h2 className="text-3xl font-bold mb-3">My Skills</h2>
+              <p className="mb-4">These are my top technical and creative skills with visual proficiency.</p>
               <Carousel responsive={responsive} infinite={true} className="owl-carousel owl-theme skill-slider">
                 {skills.map((skill, index) => (
-                  <div className="item text-center p-4" key={index}>
+                  <div className="item text-center p-4" key={index} data-aos="fade-up" data-aos-delay={index * 100}>
                     <div style={{ width: 120, height: 120, margin: "0 auto" }}>
+                      <svg style={{ height: 0 }}>
+                        <defs>
+                          <linearGradient id={`gradient${index}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stopColor="#a64bf4" />
+                            <stop offset="100%" stopColor="#00c6ff" />
+                          </linearGradient>
+                        </defs>
+                      </svg>
                       <CircularProgressbar
                         value={skill.level}
                         text={`${skill.level}%`}
                         styles={buildStyles({
+                          pathColor: `url(#gradient${index})`,
+                          trailColor: "#222",
                           textColor: "#fff",
-                          pathColor: "#00c6ff",
-                          trailColor: "#444",
                           textSize: "16px"
                         })}
                       />
